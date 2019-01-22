@@ -4,7 +4,10 @@ class DinnerModel {
     constructor(){
 	this.dishes=dishesConst; // to be replaced in lab 3
     this.NumberOfGuests =0;
-	
+    //  selected dishes
+    this.selectedDishes=[];
+	this.selectedDishes.push(this.getAllDishes("starter")[0]);
+	this.selectedDishes.push(this.getAllDishes("starter")[2]);
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
@@ -23,35 +26,52 @@ class DinnerModel {
 
 	//Returns the dish that is on the menu for selected type 
 	getSelectedDish(type) {
-		return getAllDishes(type);
+		return this.getAllDishes(type);
 		//TODO Lab 1
 	}
 
 	//Returns all the dishes on the menu.
 	getFullMenu() {
-		return getalldishes();
+		return this.getAllDishes();
 		//TODO Lab 1
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	getAllIngredients() {
+		var allIngredients=[];
+		this.getFullMenu().forEach((dish)=>{
+			allIngredients.append(dish.ingredients);
+		});
 		//TODO Lab 1
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	getTotalMenuPrice() {
 		//TODO Lab 1
+		var totalPrice=0;
+		this.getFullMenu().forEach((dish)=>{
+			totalPrice=totalPrice+dish.price;
+		});
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	addDishToMenu(id) {
+		 this.selectedDishes.push(this.getDish(id));
+
 		//TODO Lab 1 
 	}
 
 	//Removes dish from menu
 	removeDishFromMenu(id) {
 		//TODO Lab 1
+		for (var i = this.selectedDishes.length - 1; i >= 0; i--) {
+			if(this.selectedDishes[i].id==id){
+				this.selectedDishes.splice(i,1);
+				return;
+			}
+		}
 	}
 
     

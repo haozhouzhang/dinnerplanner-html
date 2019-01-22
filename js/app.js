@@ -2,7 +2,6 @@ $(function() {
 	//We instantiate our model
 	const model = new DinnerModel();
 	
-	var homeV=new homeView($("#homeBtn"),model);
 
 	const sidebarView=new SideBarView($("#mainbody .left"),model);
 	/**
