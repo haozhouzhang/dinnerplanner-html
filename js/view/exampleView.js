@@ -30,7 +30,7 @@ class ExampleView {
 	 * in some other view gives the same ID to another element.
 	 * 
 	 */
-	this.numberOfGuests = container.querySelector("#numberOfGuests");
+	this.numberOfGuests = $("#numberOfGuests");
 
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
@@ -42,8 +42,8 @@ class ExampleView {
 	 * this button and do something with it (see Lab 2).
 	 * 
 	 */
-	this.plusButton = container.querySelector("#plusGuest");
-	this.minusButton = container.querySelector("#minusGuest");
+	this.plusButton = $("#plusGuest");
+	this.minusButton = $("#minusGuest");
 	
 	/**
 	 * Here we use numberOfGuests that is a reference to <span>
